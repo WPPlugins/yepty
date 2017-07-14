@@ -1,0 +1,146 @@
+<link rel="stylesheet" type="text/css" href="<?php echo WP_PLUGIN_URL . '/yepty/js/farbtastic/farbtastic.css'?>"
+      media="screen"/>
+<link rel="stylesheet" type="text/css" href="<?php echo WP_PLUGIN_URL . '/yepty/css/constructor.css'?>" media="screen"/>
+<link rel="stylesheet" type="text/css" href="<?php echo WP_PLUGIN_URL . '/yepty/css/tipsy.css'?>" media="screen"/>
+<!--logo+text-->
+<h2 align="center">
+  <?php echo $logoSRC ? "<img src='" . $logoSRC . "'>" : ''; ?>
+</h2>
+<!--end logo+text-->
+
+<div class="choose_ad_formats"
+     style="background: none; height: 1px; box-shadow: none">
+  <div class="tips" id="preview_tips"
+       style="position: absolute; padding: 0px;width: 350px;display: none; ">
+    <div style="padding: 7px;">
+      <span class="cl" style="float: right;"></span>
+      <a href="http://facebook.com" target="_blank" class="clickurl">
+        <span class="title">Facebook Advertising</span>
+                                        <span class="desc">Reach The Exact Audience You Want<br>
+                                        With Relevant Targeted Ads.</span>
+        <span class="url">www.facebook.com</span>
+      </a>
+
+      <div align="right" class="ads_by_yepty"><a href="http://yepty.com" target="_blank"
+        ><span>Yepty.com</span></a>Ads by&nbsp;</div>
+    </div>
+    <div class="ar" style="left: 160px;"></div>
+  </div>
+  <div class="tips" id="preview_popup"
+       style="position: fixed; padding: 0px;width: 550px;display: none; ">
+    <div style="padding: 7px;">
+      <div align="right"><span class="cl"></span></div>
+      <table cellspacing="0" style="margin-top: 0px;">
+        <tr>
+          <td style="padding: 0 13px 10px;">
+            <a style="height: auto; outline: medium none;" class="clickurl" target="_blank" href="http://store.sony.com"
+               hidefocus="true">
+              <img alt="image" class="img" src="<?php echo $imgPath; ?>notebook.gif" style="float: left">
+              <span style="display: block; min-height: 75px; margin-left: 80px;">
+              <span class="title">Sony VAIO Series Notebook</span>
+                                        <span class="desc">Supreme <b>3D notebook</b> with Quad Core processor.</span>
+                <span class="price small_price">$1449.99</span>
+                </span>
+            </a>
+          </td>
+        </tr>
+        </table>
+        <table cellspacing="0">
+        <tr>
+          <td style="padding: 0 13px 10px;">
+            <a style="height: auto; outline: medium none;" class="clickurl" target="_blank" href="http://store.sony.com"
+               hidefocus="true">
+              <img alt="image" class="img" src="<?php echo $imgPath; ?>notebook.gif" style="float: left">
+              <span style="display: block; min-height: 75px; margin-left: 80px;">
+              <span class="title">Sony VAIO Series Notebook</span>
+                                        <span class="desc">Supreme <b>3D notebook</b> with Quad Core processor.</span>
+                <span class="price small_price">$1449.99</span>
+                </span>
+            </a>
+
+          </td>
+        </tr>
+        </table>
+        <table cellspacing="0" style="margin-bottom: 0; border-bottom: none;">
+        <tr>
+          <td style="padding: 0 13px;">
+            <a style="height: auto; outline: medium none;" class="clickurl" target="_blank" href="http://store.sony.com"
+               hidefocus="true">
+              <img alt="image" class="img" src="<?php echo $imgPath; ?>notebook.gif" style="float: left">
+              <span style="display: block; min-height: 75px; margin-left: 80px;">
+              <span class="title">Sony VAIO Series Notebook</span>
+                                        <span class="desc">Supreme <b>3D notebook</b> with Quad Core processor.</span>
+                <span class="price small_price">$1449.99</span>
+                </span>
+            </a>
+          </td>
+        </tr>
+      </table>
+      <div align="right" class="ads_by_yepty" style="height: 20px;"><a href="http://yepty.com" target="_blank" style="margin-right: 7px;"
+        ><span>Yepty.com</span></a>Ads by&nbsp;</div>
+    </div>
+  </div>
+  <!--showcase-->
+  <div class="showcase" id="showcase">
+    <div style="padding: 7px 7px 0px; height: 7px;" align="right"><span class="cl"></span></div>
+    <table cellspacing="0">
+      <tbody>
+      <tr>
+        <td style="vertical-align: top"><a class="clickurl" href="http://store.sony.com" target="_blank"
+               style="padding: 3px 0px 0px 3px; height: 190px;"><img alt="image" class="img"
+                                                                     src="<?php echo $imgPath; ?>big_notebook.gif" style="margin-right: 10px;" /><span
+          class="price">250$</span></a></td>
+        <td style="vertical-align: top; padding-top: 5px;"><a style="height: 190px;" class="clickurl" href="http://store.sony.com" target="_blank"><span
+          class="title">Facebook Advertising</span><span class="desc long_desc">Reach The Exact Audience You Want With Relevant Targeted Ads. Reach The Exact Audience You Want With Relevant Targeted Ads. Reach The Exact Audience You Want With Relevant Targeted Ads.</span>
+        <span class="url" style="display: none">www.facebook.com</span>
+        </a>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+    <div style="height: 30px;"><a class="btn" href="http://store.sony.com" target="_blank">Buy now</a>
+    </div>
+    <div align="right" class="ads_by_yepty" style="display: none; margin-right: 10px; top: 5px;"><a href="http://yepty.com" target="_blank"
+      ><span>Yepty.com</span></a>Ads by&nbsp;</div>
+    <div class="ar"></div>
+  </div>
+  <!--end showcase-->
+</div>
+
+<div id="intext_color_picker" class="picker"></div>
+<div id="intext_tcol_picker" class="picker"></div>
+<div id="intext_dcol_picker" class="picker"></div>
+<div id="intext_ucol_picker" class="picker"></div>
+<div id="intext_pcol_picker" class="picker"></div>
+<div id="intext_bgcol_picker" class="picker"></div>
+<div id="intext_bcol_picker" class="picker"></div>
+<div id="inimage_tcol_picker" class="picker"></div>
+<div id="inimage_dcol_picker" class="picker"></div>
+<div id="inimage_ucol_picker" class="picker"></div>
+<div id="inimage_pcol_picker" class="picker"></div>
+<div id="inimage_bgcol_picker" class="picker"></div>
+<div id="inimage_bcol_picker" class="picker"></div>
+<div id="slider_tcol_picker" class="picker"></div>
+<div id="slider_dcol_picker" class="picker"></div>
+<div id="slider_ucol_picker" class="picker"></div>
+<div id="slider_pcol_picker" class="picker"></div>
+<div id="slider_bgcol_picker" class="picker"></div>
+<div id="slider_bcol_picker" class="picker"></div>
+<div id="adline_tcol_picker" class="picker"></div>
+<div id="adline_dcol_picker" class="picker"></div>
+<div id="adline_ucol_picker" class="picker"></div>
+<div id="adline_pcol_picker" class="picker"></div>
+<div id="adline_bgcol_picker" class="picker"></div>
+<div id="adline_bcol_picker" class="picker"></div>
+<div id="textads_tcol_picker" class="picker"></div>
+<div id="textads_dcol_picker" class="picker"></div>
+<div id="textads_ucol_picker" class="picker"></div>
+<div id="textads_pcol_picker" class="picker"></div>
+<div id="textads_bgcol_picker" class="picker"></div>
+<div id="textads_bcol_picker" class="picker"></div>
+<div id="tagcloud_bigcol_picker" class="picker"></div>
+<div id="tagcloud_lowcol_picker" class="picker"></div>
+<div id="tagcloud_bgcol_picker" class="picker"></div>
+<div id="tagcloud_bcol_picker" class="picker"></div>
+<div id="relatedtags_col_picker" class="picker"></div>
+

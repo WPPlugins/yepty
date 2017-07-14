@@ -1,0 +1,43 @@
+<?php if (!empty($adZones)) {?>
+
+  <?php
+    $blocksLabels = array("textAds" => "Text ads", "tagCloud" => "Tag-Cloud", "relatedTags" => "Related tags");
+    $placementsLabels = array('main' => 'display at the main page', 'other' => 'display at the other page', 'post'=>'display at the posts');
+    $positionLabels = array('top' => 'at the top of posts', 'bottom' => 'at the bottom of posts');
+  ?>
+
+  <table cellspacing="0" class="placements">
+    <?php foreach ($adZones as $values) {?>
+    <tr class="zones_list_line" id="<?php echo $values['id'];?>">
+      <td valign="bottom" align="left">
+        <div class="bg" style="cursor: pointer;">
+          <b>Format type:</b>
+          <b style="width: 18px; color:#D32424"> <?php echo $blocksLabels[$values['name']];?> </b>&nbsp;&nbsp;
+          <br><b>Placement settings:</b>
+          <?php
+            $count = count($values['placement']);
+            for ($i = 0; $i < $count; $i++) {
+              echo $placementsLabels[$values['placement'][$i]];
+              echo $i < $count - 1 ? ", " : "";
+            }
+          ?>
+          <br><b>Placement position:</b>
+          <?php
+            $count = count($values['position']);
+            for ($i = 0; $i < $count; $i++) {
+              echo $positionLabels[$values['position'][$i]];
+              echo $i < $count - 1 ? ", " : "";
+            }
+          ?>
+
+          <a class="dashed_a ad_zone_remove">remove</a>
+          <a class="dashed_a ad_zone_edit" style="margin-right: 10px;">edit</a>
+        </div>
+
+      </td>
+    </tr>
+    <?php }?>
+  </table>
+<?php } else { ?>
+  <div align="center" style="color: #bebebe; font-style: italic;">You have not created ad zone yet</div>
+<?php } ?>

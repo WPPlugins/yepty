@@ -1,0 +1,16 @@
+<div class="yepty_content">
+  <img src="<?php echo  $imgPath . "hello.png"; ?>" id="yepty_hello">
+  <h3 class="yepty_h3">Yepty settings </h3>
+  <form action='' method='post' id='yepty_plugin_webmaster_form'>
+    Publisher key:&nbsp;&nbsp;
+    <input type="text" id="webmasterId" name="webmasterId" value="<?php echo $webmasterId ? strtoupper($webmasterId) : '';?>">
+    &nbsp;&nbsp;
+    <a href="http://yepty.com/?registration=1" target="_blank" style="font-size: 16px;">Register</a> or use your Sharexy publisher key, if you already have one.
+    <br><br>
+    <a class='tips' id="publisher_key">Where can I find the publisher key?</a>
+    <br>
+    <img style="display: none" src="<?php echo  $imgPath . "publisher_key.png"; ?>" id="publisher_key_img">
+    <div id="fail_user_id">
+      Incorrect Publisher key
+    </div>
+  </form>

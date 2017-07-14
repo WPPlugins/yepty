@@ -1,0 +1,657 @@
+<div class="inner_div static_div">
+  <form action='' method='post' id='yepty_plugin_adzones_form'>
+    <h4 class="yepty_h4">Activate and adjust the ad format</h4>
+    <table width="100%" cellspacing="0">
+      <tr>
+        <td width="33.3%">
+          <div class="ad_format" id="textads_format">
+            <div class="cont">
+              <div class="top">
+                <div class="cactive">
+                  <label class="check" for="textads_display" id="label_textAds_display">
+                    <?php echo $textAdsParams['style']['display'] ? 'Active!' : 'Activate!';?>
+                  </label>
+                  <span class="niceCheck">
+                    <input type="checkbox" name="textAds_display" id="textads_display"
+                      <?php echo $textAdsParams['style']['display'] ? 'checked=true value="1"' : 'value="0"';?>
+                    >
+                  </span>
+                </div>
+                <img src="<?php echo $imgPath . "textads.gif";?>" align="top" style="margin-top: 33px; ">
+                <h5 class="yepty_h5">Text ads</h5>
+              </div>
+              <table cellspacing="0">
+                <tr>
+                  <td width="120"><p>Ad unit size:</p></td>
+                  <td>
+                    <input type="text"
+                           value="<?php echo $textAdsParams['style']['width'];?>"
+                           onfocus="this.select()"
+                           class="format_input" id="textads_width" name="textAds_width"
+                      >&nbsp;&nbsp;
+                    <span style="font-family: Arial">X</span>&nbsp;&nbsp;
+                    <input type="text"
+                           value="<?php echo $textAdsParams['style']['height'];?>"
+                           onfocus="this.select()"
+                           class="format_input"
+                           id="textads_height"
+                           name="textAds_height">
+                  </td>
+                </tr>
+                <tr>
+                  <td>&nbsp;</td>
+                  <td><span class="err" style="display: none">Incorrect size</span>&nbsp;</td>
+                </tr>
+                <tr>
+                  <td>Use frame:</td>
+                  <td style="padding: 2px 0;">
+                    <span class="niceCheck">
+                      <input type="checkbox" name="textAds_frame" id="textads_frame"
+                        <?php echo $textAdsParams['style']['frame'] ? 'checked=true value="1"' : 'value="0"';?>
+                        >
+                    </span>
+                  </td>
+                </tr>
+                <tr class="textads_separate" style="<?php echo !$textAdsParams['style']['frame'] ? "display:none;" : "";?>">
+                  <td>Separate ads:</td>
+                  <td style="padding: 2px 0;">
+                    <span class="niceCheck">
+                      <input type="checkbox" name="textAds_separate" id="textads_separate"
+                        <?php echo $textAdsParams['style']['separate'] ? 'checked=true value="1"' : 'value="0"';?>
+                        >
+                    </span>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Color scheme: </td>
+                  <td>
+                    <?php
+                    $textAdsParams['style']['tcol'] = isset($textAdsParams['style']['tcol'])?str_replace('#', '', $textAdsParams['style']['tcol']):"";
+                    $textAdsParams['style']['dcol'] = isset($textAdsParams['style']['dcol'])?str_replace('#', '', $textAdsParams['style']['dcol']):"";
+                    $textAdsParams['style']['ucol'] = isset($textAdsParams['style']['ucol'])?str_replace('#', '', $textAdsParams['style']['ucol']):"";
+                    $textAdsParams['style']['pcol'] = isset($textAdsParams['style']['pcol'])?str_replace('#', '', $textAdsParams['style']['pcol']):"";
+                    $textAdsParams['style']['bgcol'] = isset($textAdsParams['style']['bgcol'])?str_replace('#', '', $textAdsParams['style']['bgcol']):"";
+                    $textAdsParams['style']['bcol'] = isset($textAdsParams['style']['bcol'])?str_replace('#', '', $textAdsParams['style']['bcol']):"";
+                    ?>
+                    <div id="textads_color_scheme" class="color_scheme" style="background: #<?php echo $textAdsParams['style']['bgcol']; if ($textAdsParams['style']['frame'] == 1) {?> border: 1px solid #<?php echo $textAdsParams['style']['pcol'];?> <?php } ?>">
+                      <table cellspacing="0"><tr><td><img src="<?php echo $imgPath; ?>icon.gif" style="width: 30px; margin-right: 5px;"></td><td>
+                      <div class="title" style="background: #<?php echo $textAdsParams['style']['tcol'];?>"></div>
+                      <div class="desc" style="margin-top: 4px;background: #<?php echo $textAdsParams['style']['dcol'];?>"></div>
+                      <div class="desc" style="width: 50px; margin-bottom: 4px;background: #<?php echo $textAdsParams['style']['dcol'];?>"></div>
+                      <div class="price" style="width: 20px;background: #<?php echo $textAdsParams['style']['pcol'];?>"></div>
+                        </td></tr></table>
+                    </div>
+                    <div class="color_scheme_popup" id="textads_color_scheme_popup" style="display: none">
+                      <div style="padding: 5px;">
+                        <table cellspacing="3">
+                          <tr>
+                            <td>Title color:</td>
+                            <td>
+                              <input type="text" id="textads_tcol" name="textAds_tcol" class="input_color" readonly="true"
+                                     style="background: #<?php echo $textAdsParams['style']['tcol'];?>; color: #<?php echo $textAdsParams['style']['tcol'];?>"
+                                     value="#<?php echo $textAdsParams['style']['tcol'];?>"
+                                >
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>Description color:</td>
+                            <td>
+                              <input type="text" id="textads_dcol" name="textAds_dcol" class="input_color" readonly="true"
+                                     style="background: #<?php echo $textAdsParams['style']['dcol'];?>; color: #<?php echo $textAdsParams['style']['dcol'];?>"
+                                     value="#<?php echo $textAdsParams['style']['dcol'];?>"
+                                >
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>Url color:</td>
+                            <td>
+                              <input type="text" id="textads_ucol" name="textAds_ucol" class="input_color" readonly="true"
+                                     style="background: #<?php echo $textAdsParams['style']['ucol'];?>; color: #<?php echo $textAdsParams['style']['ucol'];?>"
+                                     value="#<?php echo $textAdsParams['style']['ucol'];?>"
+                                >
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>Price color:</td>
+                            <td>
+                              <input type="text" id="textads_pcol" name="textAds_pcol" class="input_color" readonly="true"
+                                     style="background: #<?php echo $textAdsParams['style']['pcol'];?>; color: #<?php echo $textAdsParams['style']['pcol'];?>"
+                                     value="#<?php echo $textAdsParams['style']['pcol'];?>"
+                                >
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top" style="padding-top: 7px;">
+                              Background color:<br>
+                              <span class="dashed_a" id="textads_transparent" style="font-size: 10px;">Transparent</span>
+                            </td>
+                            <td valign="top">
+                              <input type="text" id="textads_bgcol" name="textAds_bgcol" class="input_color" readonly="true"
+                                     style="background: #<?php $textAdsParams['style']['bgcol'];?>; color: #<?php echo $textAdsParams['style']['bgcol'];?>"
+                                     value="#<?php echo $textAdsParams['style']['bgcol'];?>">
+                            </td>
+                          </tr>
+                          <tr class="textads_bcol"
+                            <?php echo !$textAdsParams['style']['frame'] ? 'style="display: none;"' : '';?>
+                            >
+                            <td>Frame color:</td>
+                            <td>
+                              <input type="text" id="textads_bcol" name="textAds_bcol" class="input_color" readonly="true"
+                                     style="background: #<?php echo $textAdsParams['style']['bcol'];?>; color: #<?php echo $textAdsParams['style']['bcol'];?>"
+                                     value="#<?php echo $textAdsParams['style']['bcol'];?>">
+                            </td>
+                          </tr>
+                        </table>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Text size:</td>
+                  <td style="padding: 5px 0">
+                    <div id="textads_text_size" class="color_scheme"
+                         style="background: #<?php echo $textAdsParams['style']['bgcol']; if ($textAdsParams['style']['frame'] == 1) {?> border: 1px solid #<?php echo $textAdsParams['style']['pcol'];?> <?php } ?>">
+                      <table cellspacing="0">
+                        <tr><td rowspan="3"><img src="<?php echo $imgPath; ?>icon.gif" style="width: 30px; margin-right: 5px;"></td>
+                          <td rowspan=3>
+                            <div class="title" style="width: 50px;background: #<?php echo $textAdsParams['style']['tcol'];?>"></div>
+                            <div class="desc" style="width: 35px;margin-top: 4px;background: #<?php echo $textAdsParams['style']['dcol'];?>"></div>
+                            <div class="desc" style="width: 30px; margin-bottom: 4px;background: #<?php echo $textAdsParams['style']['dcol'];?>"></div>
+                            <div class="price" style="width: 20px;background: #<?php echo $textAdsParams['style']['pcol'];?>"></div>
+                          </td>
+                          <td class="color_scheme_size" id="color_scheme_tsize">
+                            <?php echo $textAdsParams['style']['tsize'];?>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="color_scheme_size" id="color_scheme_dsize">
+                            <?php echo $textAdsParams['style']['dsize'];?>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="color_scheme_size" id="color_scheme_psize">
+                            <?php echo $textAdsParams['style']['psize'];?>
+                          </td>
+                        </tr>
+                      </table>
+                    </div>
+                    <div class="color_scheme_popup" id="textads_text_size_popup" style="display: none; width: 242px;">
+                      <div style="padding: 5px;">
+                        <table cellspacing="3">
+                          <tr>
+                            <td>Title size:</td>
+                            <td width="60">
+                              <select id="textads_tsize" name="textAds_tsize">
+                                <?php
+                                for ($i = 11; $i <= 20; $i++) {
+                                  echo '<option value="' . $i . '" ';
+                                  echo $textAdsParams['style']['tsize'] == $i ? 'selected' : '';
+                                  echo '>' . $i . '</option>';
+                                }
+                                ?>
+                              </select>
+                            </td>
+                            <td>
+                              <span class="niceCheck">
+                                <input type="checkbox" name="textAds_tstyle" id="textads_tstyle"
+                                  <?php echo $textAdsParams['style']['tstyle'] ? 'checked=true value="1"' : 'value="0"';?>
+                                  >
+                              </span>
+                            </td>
+                            <td>
+                              <label class="check" for="textads_tstyle" id="label_textads_tstyle" style="font-style: italic">Cursive</label>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>Description size:</td>
+                            <td>
+                              <select id="textads_dsize" name="textAds_dsize">
+                                <?php
+                                for ($i = 11; $i <= 20; $i++) {
+                                  echo '<option value="' . $i . '" ';
+                                  echo $textAdsParams['style']['dsize'] == $i ? 'selected' : '';
+                                  echo '>' . $i . '</option>';
+                                }
+                                ?>
+                              </select>
+                            </td>
+                            <td>
+                              <span class="niceCheck">
+                                <input type="checkbox" name="textAds_dstyle" id="textads_dstyle"
+                                  <?php echo $textAdsParams['style']['dstyle'] ? 'checked=true value="1"' : 'value="0"';?>
+                                >
+                              </span>
+                            </td>
+                            <td>
+                              <label class="check" for="textads_dstyle" id="label_textads_dstyle" style="font-style: italic">Cursive</label>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>Url size:</td>
+                            <td>
+                              <select id="textads_usize" name="textAds_usize">
+                                <?php
+                                for ($i = 11; $i <= 20; $i++) {
+                                  echo '<option value="' . $i . '" ';
+                                  echo $textAdsParams['style']['usize'] == $i ? 'selected' : '';
+                                  echo '>' . $i . '</option>';
+                                }
+                                ?>
+                              </select>
+                            </td>
+                            <td> <span class="niceCheck">
+                                <input type="checkbox" name="textAds_ustyle" id="textads_ustyle"
+                                  <?php echo $textAdsParams['style']['ustyle'] ? 'checked=true value="1"' : 'value="0"';?>
+                                  >
+                              </span></td>
+                            <td>
+                              <label class="check" for="textads_ustyle" id="label_textads_ustyle" style="font-style: italic">Cursive</label>
+
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>Price size:</td>
+                            <td>
+                              <select id="textads_psize" name="textAds_psize">
+                                <?php
+                                for ($i = 11; $i <= 20; $i++) {
+                                  echo '<option value="' . $i . '" ';
+                                  echo $textAdsParams['style']['psize'] == $i ? 'selected' : '';
+                                  echo '>' . $i . '</option>';
+                                }
+                                ?>
+                              </select>
+                            </td>
+                            <td> <span class="niceCheck">
+                                <input type="checkbox" name="textAds_pstyle" id="textads_pstyle"
+                                  <?php echo $textAdsParams['style']['pstyle'] ? 'checked=true value="1"' : 'value="0"';?>
+                                  >
+                              </span></td>
+                            <td>
+                              <label class="check" for="textads_pstyle" id="label_textads_pstyle" style="font-style: italic">Cursive</label>
+
+                            </td>
+                          </tr>
+                        </table>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Quantity of ads:</td>
+                  <td id="textads_num_count" style="padding-top: 3px">
+                    <select id="textads_num" name="textAds_num"></select>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </div>
+        </td>
+        <td width="33.3%">
+          <div class="ad_format" id="tagcloud_format">
+            <div class="cont">
+              <div class="top">
+                <div class="cactive">
+                  <label class="check" for="tagcloud_display" id="label_tagcloud">
+                    <?php echo $tagCloudParams['style']['display'] ? 'Active!' : 'Activate!';?>
+                  </label>
+                  <span class="niceCheck">
+                    <input type="checkbox" name="tagCloud_display" id="tagcloud_display"
+                      <?php echo $tagCloudParams['style']['display'] ? 'checked=true value="1"' : 'value="0"';?>
+                    >
+                  </span>
+                </div>
+                <img src="<?php echo $imgPath . "tagcloud.gif";?>" align="top" style="margin-top: 31px; ">
+                <h5 class="yepty_h5">Tag-Cloud</h5>
+              </div>
+              <table cellspacing="0">
+                <tr>
+                  <td width="125">
+                    <p>Tag Cloud size:</p>
+                  </td>
+                  <td>
+                    <input type="text"
+                             value="<?php echo $tagCloudParams['style']['width'];?>"
+                             onfocus="this.select()"
+                             class="format_input" name="tagCloud_width"
+                             id="tagcloud_width"
+                    >&nbsp;&nbsp;
+                    <span style="font-family: Arial">X</span>&nbsp;&nbsp;
+                    <input type="text" value="<?php echo $tagCloudParams['style']['height'];?>" onfocus="this.select()" class="format_input" name="tagCloud_height" id="tagcloud_height">
+                  </td>
+                </tr>
+                <tr>
+                  <td>&nbsp;</td>
+                  <td><span class="err" style="display: none">Incorrect size</span>&nbsp;</td>
+                </tr>
+                <tr>
+                  <td style="vertical-align: top; padding-top: 7px"><a original-title=" There are two options, show ads when visitors hover their mouse cursor over a keyword or when they clicking on a keyword." class="tips" hidefocus="true" style="outline: medium none;">Appearence settings:</a>
+                  </td>
+                  <td>
+                    <select id="tagcloud_type" name="tagCloud_type">
+                      <option value="2" <?php echo $tagCloudParams['style']['type'] == 2 ? 'selected' : ''?>>click</option>
+                      <option value="1" <?php echo $tagCloudParams['style']['type'] == 1 ? 'selected' : ''?>>hover</option>
+                    </select>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="padding-top: 9px;">Use frame:</td>
+                  <td style="padding: 11px 0 2px;">
+                    <span class="niceCheck">
+                      <input type="checkbox" name="tagCloud_frame" id="tagcloud_frame"
+                        <?php echo $tagCloudParams['style']['frame'] ? 'checked=true value="1"' : 'value="0"';?>
+                      >
+                    </span>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="padding-top: 14px;">Color scheme:</td>
+                  <td style="padding-top: 15px;">
+                    <?php
+                    $tagCloudParams['style']['bigcol'] = isset($tagCloudParams['style']['bigcol'])?str_replace('#', '', $tagCloudParams['style']['bigcol']):"";
+                    $tagCloudParams['style']['lowcol'] = isset($tagCloudParams['style']['lowcol'])?str_replace('#', '', $tagCloudParams['style']['lowcol']):"";
+                    $tagCloudParams['style']['bgcol'] = isset($tagCloudParams['style']['bgcol'])?str_replace('#', '', $tagCloudParams['style']['bgcol']):"";
+                    $tagCloudParams['style']['bcol'] = isset($tagCloudParams['style']['bcol'])?str_replace('#', '', $tagCloudParams['style']['bcol']):"";
+                    ?>
+                    <div id="tagcloud_color_scheme" class="color_scheme" style="background: #<?php echo $tagCloudParams['style']['bgcol'];?>">
+                      <div class="smallkey" style="background: #<?php echo $tagCloudParams['style']['lowcol'];?>"></div>
+                      <div class="smallkey" style="background: #<?php echo $tagCloudParams['style']['lowcol'];?>"></div>
+                      <div class="midkey" style="background: #<?php echo $tagCloudParams['style']['lowcol'];?>"></div>
+                      <div class="bigkey" style="background: #<?php echo $tagCloudParams['style']['bigcol'];?>"></div>
+                      <div class="smallkey" style="background: #<?php echo $tagCloudParams['style']['lowcol'];?>"></div>
+                      <div class="smallkey" style="background: #<?php echo $tagCloudParams['style']['lowcol'];?>"></div>
+                      <div class="midkey" style="background: #<?php echo $tagCloudParams['style']['lowcol'];?>"></div>
+                      <div class="bigkey" style="background: #<?php echo $tagCloudParams['style']['bigcol'];?>"></div>
+                      <div class="smallkey" style="background: #<?php echo $tagCloudParams['style']['lowcol'];?>"></div>
+                      <div class="midkey" style="background: #<?php echo $tagCloudParams['style']['lowcol'];?>"></div>
+                    </div>
+                  </td>
+                </tr>
+              </table>
+              <div class="color_scheme_popup" style="display: none">
+                <div style="padding: 5px;">
+                  <table cellspacing="3">
+                    <tr>
+                      <td><p>Big keyword color:</p></td>
+                      <td>
+                        <input type="text" id="tagcloud_bigcol" name="tagCloud_bigcol"
+                               class="input_color" readonly="true"
+                               style="background: #<?php echo $tagCloudParams['style']['bigcol'];?>; color: #<?php echo $tagCloudParams['style']['bigcol'];?>"
+                               value="#<?php echo $tagCloudParams['style']['bigcol'];?>">
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><p>Small keyword color:</p></td>
+                      <td>
+                        <input type="text" id="tagcloud_lowcol" name="tagCloud_lowcol"
+                               class="input_color" readonly="true"
+                               style="background: #<?php echo $tagCloudParams['style']['lowcol'];?>; color: #<?php echo $tagCloudParams['style']['lowcol'];?>"
+                               value="#<?php echo $tagCloudParams['style']['lowcol'];?>">
+                      </td>
+                    </tr>
+                    <tr>
+                      <td style="padding-top: 7px;">
+                        Background color:<br>
+                        <span class="dashed_a" id="tagcloud_transparent" style="font-size: 10px;">Transparent</span>
+                      </td>
+                      <td valign="top">
+                        <input type="text" id="tagcloud_bgcol" name="tagCloud_bgcol"
+                               class="input_color" readonly="true"
+                               style="background: #<?php echo $tagCloudParams['style']['bgcol'];?>; color: #<?php echo $tagCloudParams['style']['bgcol'];?>"
+                               value="#<?php echo $tagCloudParams['style']['bgcol'];?>">
+                      </td>
+                    </tr>
+                    <tr class="tagcloud_bcol"
+                      <?php echo !$tagCloudParams['style']['frame'] ? 'style="display: none;"' : '';?>
+                    >
+                      <td>Frame color:</td>
+                      <td>
+                        <input type="text" id="tagcloud_bcol" name="tagCloud_bcol" class="input_color" readonly="true"
+                               style="background: #<?php echo $tagCloudParams['bcol'];?>; color: #<?php echo $tagCloudParams['style']['bcol'];?>"
+                               value="#<?php echo $tagCloudParams['style']['bcol'];?>">
+                      </td>
+                    </tr>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </td>
+        <td width="33.3%">
+          <div class="ad_format" id="relatedtags_format" style="margin-right: 0px">
+            <div class="cont">
+              <div class="top">
+                <div class="cactive">
+                  <label class="check" for="relatedtags_display" id="label_relatedtags">
+                    <?php echo $relatedTagsParams['style']['display'] ? 'Active!' : 'Activate!';?>
+                  </label>
+                  <span class="niceCheck">
+                    <input type="checkbox" name="relatedTags_display" id="relatedtags_display"
+                      <?php echo $relatedTagsParams['style']['display'] ? 'checked=true value="1"' : 'value="0"';?>
+                    >
+                  </span>
+                </div>
+                <img src="<?php echo $imgPath . "relatedtags.gif"; ?>" align="top" style="margin-top: 31px; ">
+                <h5 class="yepty_h5">Related tags</h5>
+              </div>
+              <table cellspacing="0">
+                <tr>
+                  <td width="125"><p>Related tags width:</p></td>
+                  <td>
+                    <input type="text"
+                             value="<?php echo $relatedTagsParams['style']['width'];?>"
+                             onfocus="this.select()"
+                             class="format_input" name="relatedTags_width" id="relatedtags_width">
+                  </td>
+                </tr>
+                <tr>
+                  <td>&nbsp;</td>
+                  <td><span class="err" style="display: none">Incorrect width</span></td>
+                </tr>
+                <tr>
+                  <td style="vertical-align: top;padding-top: 7px;">
+                    <a original-title=" There are two options, show ads when visitors hover their mouse cursor over a keyword or when they clicking on a keyword." class="tips" hidefocus="true" style="outline: medium none;">Appearence settings:</a>
+                  </td>
+                  <td>
+                    <select id="relatedtags_type" name="relatedTags_type">
+                      <option value="2" <?php echo $relatedTagsParams['style']['type'] == 2 ? 'selected' : '';?>>click</option>
+                      <option value="1" <?php echo $relatedTagsParams['style']['type'] == 1 ? 'selected' : '';?>>hover</option>
+                    </select>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="padding-top: 5px;">Color scheme:</td>
+                  <td style="padding-top: 2px;">
+                    <div id="relatedtags_color_scheme" class="color_scheme">
+                      <?php
+                      $relatedTagsParams['style']['col'] = isset($relatedTagsParams['style']['col'])?str_replace('#', '', $relatedTagsParams['style']['col']):'';
+                      ?>
+
+                      <div class="key" style="background: #<?php echo $relatedTagsParams['style']['col'];?>;"></div>
+                      <div class="key" style="background: #<?php echo $relatedTagsParams['style']['col'];?>;"></div>
+                      <div class="key" style="background: #<?php echo $relatedTagsParams['style']['col'];?>;"></div>
+                    </div>
+                  </td>
+                </tr>
+              </table>
+              <div class="color_scheme_popup" style="display: none">
+                <div style="padding: 5px;">
+                  <table cellspacing="3">
+                    <tr>
+                      <td width="120"><p>Keyword color:</p></td>
+                      <td>
+                        <input type="text" id="relatedtags_col" name="relatedTags_col" class="input_color" readonly="true"
+                               style="background: #<?php echo $relatedTagsParams['style']['col'];?>; color: #<?php echo $relatedTagsParams['style']['col'];?>"
+                               value="#<?php echo $relatedTagsParams['style']['col'];?>">
+                      </td>
+                    </tr>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </td>
+      </tr>
+    </table>
+
+
+    <div style=" height: 15px;">
+      <img src="<?php echo $imgPath . "preview_ar.png"; ?>" class="choose_ad_formats_ar">
+    </div>
+    <div class="choose_ad_formats">
+
+      <!--textads_preview-->
+      <div class="textads_preview preview static_preview" align="center" style="overflow: hidden">
+        <div class="tips" align="left">
+          <table class="ads" cellspacing="0">
+          </table>
+          <div id="textads_logo" style="position: relative;" align="right" class="ads_by_yepty ads_by_yepty_small"><a
+            href="http://yepty.com/" target="_blank" style="margin-right: 5px; "><span>Yepty.com</span></a>Ads
+            by&nbsp;</div>
+
+        </div>
+      </div>
+      <!--end textads_preview-->
+
+      <!--tagcloud_preview-->
+      <div class="tagcloud_preview preview static_preview">
+        <div align="center">
+          <table cellspacing="0">
+            <tr>
+              <td class="keywords"></td>
+            </tr>
+          </table>
+        </div>
+        <div id="tagcloud_logo" align="right" class="ads_by_yepty ads_by_yepty_small" style="position: relative;"><a
+          href="http://yepty.com/" target="_blank"><span>Yepty.com</span></a>Ads by&nbsp;</div>
+      </div>
+      <!--end tagcloud_preview-->
+
+      <!--relatedtags_preview-->
+      <div class="relatedtags_preview preview static_preview" align="center">
+        <div style="padding-top: 100px;">
+        <table cellspacing="0">
+          <tr>
+            <td>
+              <div style="height: 1px; width: 10px; background: #E5E5E5"></div>
+            </td>
+            <td style="color: #7e7e7e; font-style:italic; white-space: nowrap;">&nbsp;Related tags&nbsp;</td>
+            <td>
+              <div class="line" style="height: 1px; float: right;background: #E5E5E5"></div>
+            </td>
+          </tr>
+          <tr>
+            <td class="keywords" style="padding: 5px 0; text-align: center;" colspan="3">&nbsp;</td>
+          </tr>
+          <tr>
+            <td colspan="3">
+              <table style="border: none" cellspacing="0">
+                <tr>
+                  <td>
+                    <div class="line_foot" style="height: 1px; float: left;background: #E5E5E5"></div>
+                  </td>
+                  <td>
+                    <div style="position: static; height: 20px;" align="center"
+                         class="ads_by_yepty ads_by_yepty_small"><a
+                      href="http://yepty.com/" target="_blank"><span>Yepty.com</span></a>Ads
+                      by&nbsp;</div>
+                  </td>
+                  <td>
+                    <div style="height: 1px; margin-left: 4px; float: right; width: 10px; background: #E5E5E5"></div>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+        </table>
+        </div>
+      </div>
+      <!--end relatedtags_preview-->
+    </div>
+
+
+    <div style="float: left; width: 540px;">
+      <h4 class="yepty_h4" style="padding-top: 20px;">Auto Ad unit placement</h4>
+    <div class="ad_zones" style="margin-top: 0; height:208px">
+      <p class="placem">Select the locations where you want to display the ad unit and click on the button "Create new Ad zone".</p>
+      <p class="placem">Placement settings:</p>
+
+      <div id="ad_zones_placements_settings">
+
+        <table cellspacing="0" class="placements">
+          <tr>
+            <td>
+              <span class="niceCheck">
+                <input type="checkbox" name="_main_placements" id="_main_placements" value="main" checked=true value="1">
+              </span>
+              <label for="_main_placements">Display at the main page</label>
+            </td>
+            <td>
+              <span class="niceCheck">
+                <input type="checkbox" name="_other_placements" id="_other_placements" value="other" checked=true value="1">
+              </span>
+              <label for="_other_placements">Display at the other pages</label>
+            </td>
+            <td>
+              <span class="niceCheck">
+                <input type="checkbox" name="_post_placements" id="_post_placements" value="post" checked=true value="1">
+              </span>
+              <label for="_post_placements">Display at the posts</label>
+            </td>
+          </tr>
+        </table>
+
+
+      </div>
+
+      <div id="ad_zones_positions_settings">
+        <p class="placem">Position:</p>
+        <table cellspacing="0" class="placements">
+          <tr>
+            <td>
+              <span class="niceCheck">
+                <input type="checkbox" name="_position_top" id="_position_top" value="post_top" checked=true value="1">
+              </span>
+              <label for="_position_top">At the top of posts</label>
+            </td>
+            <td>
+              <span class="niceCheck">
+                <input type="checkbox" name="_position_bottom" id="_position_bottom" value="post_bottom" checked=true value="1">
+              </span>
+              <label for="_position_bottom">At the bottom of posts</label>
+            </td>
+          </tr>
+        </table>
+
+      </div>
+
+      <input type="submit" style="width: 492px; margin-left: 0; margin-right: 0px;" id="yepty_plugin_multi_form_submit_button" class="yepty_plugin_constructor_form_submit_button" value="Create new ad zone">
+
+
+    </div>
+
+    </div>
+    <div style="margin-left: 550px; ">
+      <h4 class="yepty_h4" style="padding-top: 20px;">Manual Ad unit placement</h4>
+      <div class="ad_zones" style="margin-top: 0; height: 208px;">
+          <p class="placem">If you want to display selected ad unit in the header, footer or sidebar, copy and paste the ad code into the HTML source code of your pages where you'd like ads to appear.
+            If you insert javascript code manually, creating a new Ad zone is not required.</p>
+          <textarea id="shortCode" onfocus="this.select()" onclick="this.select()" style="width: 338px; height: 112px; padding: 5px; overflow: hidden; color: #555 "></textarea>
+         </div>
+    </div>
+  </form>
+  <div id="ad_zones_error" style="margin-left: 5px; width: 515px;">
+    Incorrect Publisher key
+  </div>
+    <div class="ad_zones">
+
+      <p class="placem">Created ad zones:</p>
+<div id="adZonesList"></div></div>
+  <div style="padding: 15px 5px 6px ">
+    <a href="http://yepty.userecho.com/topic/120670-ads-broadcasting-control-and-ability-to-restrict-indexation-of-the-website-content/" target="_blank" style="font-size: 19px; float: right; color: #D32424;">Important information! Please read</a>
+    <a href="http://community.yepty.com" target="_blank" style="font-size: 19px;">Need Help?</a>
+  </div>
+
+
+
+

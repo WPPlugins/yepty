@@ -1,0 +1,806 @@
+<div id="yepty_ads_formates">
+  <div style="width: 950px; margin: 0px auto">
+    <h4 class="yepty_h4">Choose type of ad formats</h4>
+    <div class="type_formats" style="width: 920px;">
+      <table width="100%" cellspacing="0">
+        <tr>
+          <td width="49%" valign="top">
+            <div class="get_the_code_for float_formats get_the_code_for_hover" align="left">
+              Content integrated ads<br><span class="gray">(Ad-line, In-text, Slider, In-image)</span>
+            </div>
+          </td>
+          <td width="2%">&nbsp;</td>
+          <td width="49%" valign="top">
+            <div class="get_the_code_for static_formats" style="margin-right: 0;" align="left">
+              Static ad units<br><span class="gray">(Text Ads, Tag-Cloud, Related tags)</span>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+
+    <div id="items_wrap"><a class="ar_r prev browse right" style="display: none"><span>back</span></a>
+      <div class="scrollable">
+        <div class="items">
+          <div class="inner_div">
+
+            <form action='' method='post' id='yepty_plugin_main_form'>
+
+              <h4 class="yepty_h4">Activate and adjust the ad formats</h4>
+              <div class="ad_format" id="adline_format" style="margin: 0px 0px 15px">
+                <div class="cont" style="height: 72px;">
+                  <div class="top" style="height: 57px;">
+
+
+
+
+                    <table cellspacing="0" width="900">
+                      <tr>
+                        <td><img src='<?php echo  $imgPath . "adline.gif"; ?>'></td>
+                        <td><h5 class="yepty_h5" style="padding-top: 15px; width: 92px; margin: 0;">Ad-line</h5></td>
+                        <td width="100" nowrap style="padding: 24px 5px 0 15px; white-space: nowrap"> Ad-line position:</td>
+                        <td style="padding-top: 24px; width: 481px;">
+                          <table cellspacing="0" cellpadding="0" >
+                            <tr>
+                              <td valign="top">
+                                <input type="radio" class="niceRadio" name="adLine_position" id="adline_position_top"
+                                  <?php echo isset($adLineParams['style']['position']) && $adLineParams['style']['position'] == 'top' ? 'checked=true' : '';?>
+                                      value="top"
+                                ></td><td>
+                                <label style="white-space: nowrap" for="adline_position_top" onclick="if (document.all && !document.querySelector) { return false;}">
+                                  At the top of page&nbsp;&nbsp;&nbsp;&nbsp;
+                                </label>
+                              </td>
+                              <td valign="top">
+                                <input type="radio" class="niceRadio" name="adLine_position" id="adline_position_bottom"
+                                  <?php echo isset($adLineParams['style']['position']) && $adLineParams['style']['position'] != 'top' ? 'checked=true' : '';?>
+                                  value="bottom"
+                                ></td><td>
+                                <label style="white-space: nowrap" for="adline_position_bottom" onclick="if (document.all && !document.querySelector) { return false;}">
+                                  At the bottom of page
+                                </label>
+                              </td>
+                              <td style="padding: 0px 0 0 20px; line-height: 15px;white-space: nowrap">Color scheme:&nbsp;&nbsp;</td>
+                              <td>
+                                <?php
+                                $adLineParams['style']['tcol'] = isset($adLineParams['style']['tcol'])?str_replace('#', '', $adLineParams['style']['tcol']):"";
+                                $adLineParams['style']['dcol'] = isset($adLineParams['style']['dcol'])?str_replace('#', '', $adLineParams['style']['dcol']):"";
+                                $adLineParams['style']['ucol'] = isset($adLineParams['style']['ucol'])?str_replace('#', '', $adLineParams['style']['ucol']):"";
+                                $adLineParams['style']['pcol'] = isset($adLineParams['style']['pcol'])?str_replace('#', '', $adLineParams['style']['pcol']):"";
+                                $adLineParams['style']['bgcol'] = isset($adLineParams['style']['bgcol'])?str_replace('#', '', $adLineParams['style']['bgcol']):"";
+                                $adLineParams['style']['bcol'] = isset($adLineParams['style']['bcol'])?str_replace('#', '', $adLineParams['style']['bcol']):"";
+                                ?>
+                                <div style="background: #<?php echo $adLineParams['style']['bgcol'];?>; width: 90px; margin: 0px; border: 1px solid #<?php echo $adLineParams['style']['bcol'];?>" class="color_scheme" id="adline_color_scheme">
+                                  <table width="100" cellspacing="0"><tbody><tr>
+                                    <td> <div style="margin-left: 3px;width: 25px; background: #<?php echo $adLineParams['style']['tcol'];?>" class="title"></div></td><td>
+                                    <div style="width: 15px;background: #<?php echo $adLineParams['style']['pcol'];?>" class="price"></div></td><td>
+                                    <div style=" width: 35px;background: #<?php echo $adLineParams['style']['dcol'];?>" class="desc"></div></td>
+                                  </tr></tbody></table>
+
+                                </div>
+                                <div style="display: none;" id="adline_color_scheme_popup" class="color_scheme_popup">
+                                  <div style="padding: 5px;">
+                                    <table cellspacing="3">
+                                      <tbody><tr>
+                                        <td>Title color:</td>
+                                        <td><input type="text" value="#<?php echo $adLineParams['style']['tcol'];?>" style="background: #<?php echo $adLineParams['style']['tcol'];?>; color: #<?php echo $adLineParams['style']['tcol'];?>" readonly="true" class="input_color" name="adLine_tcol" id="adline_tcol"></td>
+                                      </tr>
+                                      <tr>
+                                        <td>Description color:</td>
+                                        <td><input type="text" value="#<?php echo $adLineParams['style']['dcol'];?>" style="background: #<?php echo $adLineParams['style']['dcol'];?>; color: #<?php echo $adLineParams['style']['dcol'];?>" readonly="true" class="input_color" name="adLine_dcol" id="adline_dcol"></td>
+                                      </tr>
+                                      <tr>
+                                        <td>Url color:</td>
+                                        <td><input type="text" value="#<?php echo $adLineParams['style']['ucol'];?>" style="background: #<?php echo $adLineParams['style']['ucol'];?>; color: #<?php echo $adLineParams['style']['ucol'];?>" readonly="true" class="input_color" name="adLine_ucol" id="adline_ucol"></td>
+                                      </tr>
+
+                                      <tr>
+                                        <td>Price color:</td>
+                                        <td><input type="text" value="#<?php echo $adLineParams['style']['pcol'];?>" style="background: #<?php echo $adLineParams['style']['pcol'];?>; color: #<?php echo $adLineParams['style']['pcol'];?>" readonly="true" class="input_color" name="adLine_pcol" id="adline_pcol"></td>
+                                      </tr>                  <tr>
+                                        <td valign="top" style="padding-top: 7px;">Background color:
+
+                                        </td>
+                                        <td valign="top"><input type="text" value="#<?php echo $adLineParams['style']['bgcol'];?>" style="background: #<?php echo $adLineParams['style']['bgcol'];?>; color: #<?php echo $adLineParams['style']['bgcol'];?>" readonly="true" class="input_color" name="adLine_bgcol" id="adline_bgcol"></td>
+                                      </tr>
+                                      <tr>
+                                        <td>Frame color:</td>
+                                        <td><input type="text" value="#<?php echo $adLineParams['style']['bcol'];?>" style="background: #<?php echo $adLineParams['style']['bcol'];?>; color: #<?php echo $adLineParams['style']['bcol'];?>" readonly="true" class="input_color" name="adline_bcol" id="adline_bcol"></td>
+                                      </tr>
+                                      </tbody></table>
+                                  </div>
+                                </div>
+                              </td>
+
+                            </tr>
+                          </table>
+                        <td style="vertical-align: top"> <div class="cactive" style="width: 80px;">
+                          <label class="check" for="adLine_display" id="label_adLine_display">
+                            <?php echo isset($adLineParams['style']['display']) && $adLineParams['style']['display'] ? 'Active!' : 'Activate!';?>
+                          </label>
+                      <span class="niceCheck format_activate">
+                        <input type="checkbox" id="adLine_display" name="adLine_display"
+                          <?php echo isset($adLineParams['style']['display']) && $adLineParams['style']['display'] ? 'checked="true" value="1"' : 'value="0"';?>
+                          >
+                      </span>
+                        </div></td>
+                      </tr>
+                    </table>
+                  </div>
+                  <div style="float: right">
+                    <a class="dashed_a" id="adline_demo">demo</a>
+                  </div>
+                  <table cellspacing=0 class="placements">
+                    <tr>
+                      <td style="vertical-align: middle;">
+                        <p class="placem" style="padding: 0;">Placement settings:&nbsp;&nbsp;</p>
+                      </td>
+                      <td>
+                        <span class="niceCheck">
+                          <input type="checkbox" name="adLine_main_placements" id="adLine_main_placements" value="main"
+                            <?php echo $adLineParams['placement']['main'] === true ? 'checked=true value="1"' : 'value="0"';?>
+                          >
+                        </span>
+                        <label for="adLine_main_placements">Display ads at the main page&nbsp;&nbsp;</label>
+                      </td>
+                      <td>
+                        <span class="niceCheck">
+                          <input type="checkbox" name="adLine_other_placements" id="adLine_other_placements" value="other"
+                            <?php echo $adLineParams['placement']['other'] === true ? 'checked=true value="1"' : 'value="0"';?>
+                          >
+                        </span>
+                        <label for="adLine_other_placements">Display ads at the other pages&nbsp;&nbsp;</label>
+                      </td>
+                      <td>
+                        <span class="niceCheck">
+                          <input type="checkbox" name="adLine_post_placements" id="adLine_post_placements" value="post"
+                            <?php echo $adLineParams['placement']['post'] === true ? 'checked=true value="1"' : 'value="0"';?>
+                          >
+                        </span>
+                        <label for="adLine_post_placements">Display ads at the posts&nbsp;&nbsp;</label>
+                      </td>
+                    </tr>
+                  </table>
+                </div>
+              </div>
+
+              <table width="100%" cellspacing="0" cellpadding="0" border="0">
+              <tr>
+              <td width="33.3%">
+                <!-- inText -->
+                <div class="ad_format" id="intext_format">
+                  <div class="cont">
+                    <div style="height: 305px">
+                      <div class="top">
+                        <div class="cactive">
+                          <label class="check" for="inText_display" id="label_inText_display" >
+                            <?php echo $inTextParams['style']['display'] === true ? 'Active!' : 'Activate!';?>
+                          </label>
+                          <span class="niceCheck format_activate">
+                            <input type="checkbox" id="inText_display" name="inText_display"
+                              <?php echo $inTextParams['style']['display'] === true ? 'checked="true" value="1"' : 'value="0"';?>
+                            >
+                          </span>
+                        </div>
+                        <img src="<?php echo  $imgPath . 'intext.gif'; ?>" align="top" style="margin-top: 23px;">
+                        <h5 class="yepty_h5">In-text</h5>
+                      </div>
+                      <p class="yepty_italic">Amount of highlighted words on the page:</p>
+
+                      <!--intext range range-->
+                      <table cellspacing="0">
+                        <tr>
+                          <td>
+                            <div class="range_slider" id="intext_range" style="margin: 10px 0 30px;">
+                              &nbsp;</div>
+                          </td>
+                          <td>
+                            <div class="range_slider_value" id="intext_range_label" style="margin: 10px 0 30px;">
+                              <?php echo $inTextParams['style']['kwLimit'] == 0 ? 'Unlimited' : $inTextParams['style']['kwLimit'];?>
+                            </div>
+                          </td>
+                        </tr>
+                      </table>
+                      <input type="hidden" id="intext_range_input" name="inText_kwLimit"
+                             value="<?php echo $inTextParams['style']['kwLimit'];?>"
+                      >
+                      <!--intext range range end-->
+                      <select id="inText_style" name="inText_style" class="select">
+                        <option class="" value="dotted"
+                          <?php echo $inTextParams['style']['style'] == 'dotted' ? 'selected="selected"' : '';?>
+                        >Dotted line</option>
+                        <option class="" value="dashed"
+                          <?php echo $inTextParams['style']['style'] == 'dashed' ? 'selected="selected"' : '';?>
+                        >Dashed line</option>
+                        <option class="" value="solid"
+                          <?php echo $inTextParams['style']['style'] == 'solid' ? 'selected="selected"' : '';?>
+                        >Solid line</option>
+                        <option class="" value="double"
+                          <?php echo $inTextParams['style']['style'] == 'double' ? 'selected="selected"' : '';?>
+                        >Double line</option>
+                      </select>
+
+                      <div  style="padding: 20px 3px 0 0;height: 30px;">
+
+                          Highlight color:&nbsp;
+
+                        <input type="text" id="intext_color" class="" name="inText_color"
+                               style="width: 100px; color: #<?php echo str_replace('#', '', $inTextParams['style']['color']);?>;
+                               background-color: #<?php echo str_replace('#', '', $inTextParams['style']['color']);?>"
+                               value="#<?php echo str_replace('#', '', $inTextParams['style']['color']);?>"
+                          >
+                      </div>
+                      <div  style="padding: 26px 4px 0 0; ">
+                        <?php
+                        $inTextParams['style']['tcol'] = isset($inTextParams['style']['tcol'])?str_replace('#', '', $inTextParams['style']['tcol']):"";
+                        $inTextParams['style']['dcol'] = isset($inTextParams['style']['dcol'])?str_replace('#', '', $inTextParams['style']['dcol']):"";
+                        $inTextParams['style']['ucol'] = isset($inTextParams['style']['ucol'])?str_replace('#', '', $inTextParams['style']['ucol']):"";
+                        $inTextParams['style']['pcol'] = isset($inTextParams['style']['pcol'])?str_replace('#', '', $inTextParams['style']['pcol']):"";
+                        $inTextParams['style']['bgcol'] = isset($inTextParams['style']['bgcol'])?str_replace('#', '', $inTextParams['style']['bgcol']):"";
+                        $inTextParams['style']['bcol'] = isset($inTextParams['style']['bcol'])?str_replace('#', '', $inTextParams['style']['bcol']):"";
+                        ?>
+                        <table cellspacing="0">
+                          <tr>
+                            <td width="97">Color scheme:&nbsp;&nbsp;</td>
+                            <td>
+                              <div style="background: #<?php echo $inTextParams['style']['bgcol']; ?>; border: 1px solid #<?php echo $inTextParams['style']['bcol']; ?>" class="color_scheme" id="intext_color_scheme">
+                                <table width="100" cellspacing="0"><tbody><tr>
+
+                                  <td> <div style="background: #<?php echo $inTextParams['style']['tcol']; ?>" class="title"></div>
+                                    <div style="margin-top: 4px;background: #<?php echo $inTextParams['style']['dcol']; ?>" class="desc"></div>
+                                    <div style="width: 50px; margin-bottom: 4px;background: #<?php echo $inTextParams['style']['dcol']; ?>" class="desc"></div>
+                                    <div style="width: 20px;background: #<?php echo $inTextParams['style']['ucol']; ?>" class="url"></div></td></tr></tbody></table>
+
+                              </div>
+                              <div style="display: none;" id="intext_color_scheme_popup" class="color_scheme_popup">
+                                <div style="padding: 5px;">
+                                  <table cellspacing="3">
+                                    <tbody><tr>
+                                      <td>Title color:</td>
+                                      <td><input type="text" value="#<?php echo $inTextParams['style']['tcol']; ?>" style="background: #<?php echo $inTextParams['style']['tcol']; ?>; color: #<?php echo $inTextParams['style']['tcol']; ?>" readonly="true" class="input_color" name="inText_tcol" id="intext_tcol"></td>
+                                    </tr>
+                                    <tr>
+                                      <td>Description color:</td>
+                                      <td><input type="text" value="#<?php echo $inTextParams['style']['dcol']; ?>" style="background: #<?php echo $inTextParams['style']['dcol']; ?>; color: #<?php echo $inTextParams['style']['dcol']; ?>" readonly="true" class="input_color" name="inText_dcol" id="intext_dcol"></td>
+                                    </tr>
+                                    <tr>
+                                      <td>Url color:</td>
+                                      <td><input type="text" value="#<?php echo $inTextParams['style']['ucol']; ?>" style="background: #<?php echo $inTextParams['style']['ucol']; ?>; color: #<?php echo $inTextParams['style']['ucol']; ?>" readonly="true" class="input_color" name="inText_ucol" id="intext_ucol"></td>
+                                    </tr>
+
+                                    <tr>
+                                      <td>Price color:</td>
+                                      <td><input type="text" value="#<?php echo $inTextParams['style']['pcol']; ?>" style="background: #<?php echo $inTextParams['style']['pcol']; ?>; color: #<?php echo $inTextParams['style']['pcol']; ?>" readonly="true" class="input_color" name="inText_pcol" id="intext_pcol"></td>
+                                    </tr>                  <tr>
+                                      <td valign="top" style="padding-top: 7px;">Background color:
+
+                                      </td>
+                                      <td valign="top"><input type="text" value="#<?php echo $inTextParams['style']['bgcol']; ?>" style="background: #<?php echo $inTextParams['style']['bgcol']; ?>; color: #<?php echo $inTextParams['style']['bgcol']; ?>" readonly="true" class="input_color" name="inText_bgcol" id="intext_bgcol"></td>
+                                    </tr>
+                                    <tr>
+                                      <td>Frame color:</td>
+                                      <td><input type="text" value="#<?php echo $inTextParams['style']['bcol']; ?>" style="background: #<?php echo $inTextParams['style']['bcol']; ?>; color: #<?php echo $inTextParams['style']['bcol']; ?>" readonly="true" class="input_color" name="inText_bcol" id="intext_bcol"></td>
+                                    </tr>
+
+                                    </tbody></table>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>  </table>
+                      </div>
+                    </div>
+
+                    <p style="" class="placem">Placement settings:</p>
+                    <table cellspacing="0" class="placements">
+                      <tr>
+                        <td>
+                          <span class="niceCheck">
+                            <input type="checkbox" name="inText_main_placements" id="inText_main_placements" value="main"
+                              <?php echo $inTextParams['placement']['main'] === true ? 'checked=true value="1"' : 'value="0"';?>
+                            >
+                          </span>
+                          <label for="inText_main_placements">Display ads at the main page</label>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <span class="niceCheck">
+                            <input type="checkbox" name="inText_other_placements" id="inText_other_placements" value="other"
+                              <?php echo $inTextParams['placement']['other'] === true ? 'checked=true value="1"' : 'value="0"';?>
+                            >
+                          </span>
+                          <label for="inText_other_placements">Display ads at the other pages</label>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <span class="niceCheck">
+                            <input type="checkbox" name="inText_post_placements" id="inText_post_placements" value="post"
+                              <?php echo $inTextParams['placement']['post'] === true ? 'checked=true value="1"' : 'value="0"';?>
+                            >
+                          </span>
+                          <label for="inText_post_placements">Display ads at the posts</label>
+                        </td>
+                      </tr>
+                    </table>
+                  </div>
+                </div>
+              </td>
+              <td width="33.3%">
+                <!-- inImage -->
+                <div class="ad_format" id="inimage_format">
+                  <div class="cont">
+                    <div style="height: 305px">
+                      <div class="top">
+                        <div class="cactive">
+                          <label class="check" for="inImage_display" id="label_inImage_display">
+                            <?php echo $inImageParams['style']['display'] === true ? 'Active!' : 'Activate!';?>
+                          </label>
+                          <span class="niceCheck format_activate">
+                            <input type="checkbox" id="inImage_display" name="inImage_display"
+                              <?php echo $inImageParams['style']['display'] === true ? 'checked="true" value="1"' : 'value="0"';?>
+                            >
+                          </span>
+                        </div>
+                        <img src="<?php echo  $imgPath . "inimage.gif"; ?>" align="top">
+                        <h5 class="yepty_h5">In-image</h5>
+                      </div>
+                      <table cellspacing="0" cellpadding="0">
+                        <tr>
+                          <td>
+                            Minimum image size:&nbsp;&nbsp;
+                          </td>
+                          <td>
+                            <input class="format_input" name="inImage_minX" type="text" value="<?php echo $inImageParams['style']['minX'];?>" >&nbsp;&nbsp;
+                            <span style="font-family: Arial">X</span>&nbsp;&nbsp;
+                            <input type="text" class="format_input" name="inImage_minY" value="<?php echo $inImageParams['style']['minY'];?>">
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>&nbsp;</td>
+                          <td>
+                            <span class="err" style="display: none">Incorrect size</span>
+                          </td>
+                        </tr>
+                      </table>
+                      <div style="padding: 7px 0px 5px">
+                        <table cellspacing="0" cellpadding="0">
+                          <tr>
+                            <td width="128">Always show Ads?</td>
+                            <td valign="top">
+                              <input type="radio" class="niceRadio" name="inImage_showAds" id="show_ads_yes"
+                                <?php echo ($inImageParams['style']['showAds']==1) ? 'checked=true' : '';?>
+                                value='1'>&nbsp;
+                              </td><td>
+                              <label for="show_ads_yes">Yes&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                            </td>
+                            <td valign="top">
+                              <input type="radio" class="niceRadio" name="inImage_showAds" id="show_ads_no"
+                                <?php echo ($inImageParams['style']['showAds']==0) ? 'checked=true' : '';?>
+                                value='0'>&nbsp;
+                            </td><td>
+                              <label for="show_ads_no">No</label>
+                            </td>
+                          </tr>
+                        </table>
+                      </div>
+
+                      <div class="inimage_opacity"
+                        <?php echo ($inImageParams['style']['showAds']==0) ? 'style="display: none;"' : '';?>
+                      >
+                        <!--inimage range range-->
+                        <table cellspacing="0">
+                          <tbody>
+                          <tr>
+                            <td valign="middle" align="left" width="128">
+                              <div style="*position: relative; *z-index: 50;">Transparency:</div>
+                            </td>
+                            <td valign="middle">
+                              <div class="range_slider" id="inimage_range"
+                                   style="width: 103px; margin: 11px 0 10px;">
+                                &nbsp;</div>
+                            </td>
+                            <td valign="middle">
+                              <div style="*position: relative; *z-index: 50;">
+                                <span class="range_slider_value" name="inimage_opacity" id="inimage_range_label">
+                                  <?php echo $inImageParams['style']['range'];?>
+                                </span>
+                                <span class="range_slider_value" style="padding-left: 0;">%</span>
+                              </div>
+                            </td>
+                          </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <table cellspacing="0" style="margin-top: 7px;">
+                        <!--inimage ad position-->
+                        <tr>
+                          <td valign="middle" align="left" width="128">Ad position:</td>
+                          <td colspan="2">
+                            <table class="inimage_position" cellspacing="0">
+                              <tr>
+                                <td name="tl" class="t l <?php echo $inImageParams['style']['position'] == 'tl' ? 'hover' : '';?>">
+                                  <div>&nbsp;</div>
+                                </td>
+                                <td name="tc" class="t <?php echo $inImageParams['style']['position'] == 'tc' ? 'hover' : '';?>">
+                                  <div>&nbsp;</div>
+                                </td>
+                                <td name="tr" class="t r <?php echo $inImageParams['style']['position'] == 'tr' ? 'hover' : '';?>">
+                                  <div>&nbsp;</div>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td name="cl" class="l <?php echo $inImageParams['style']['position'] == 'cl' ? 'hover' : '';?>">
+                                  <div>&nbsp;</div>
+                                </td>
+                                <td name="cc" class="<?php echo $inImageParams['style']['position'] == 'cc' ? 'hover' : '';?>">
+                                  <div>&nbsp;</div>
+                                </td>
+                                <td name="cr" class="r <?php echo $inImageParams['style']['position'] == 'cr' ? 'hover' : '';?>">
+                                  <div>&nbsp;</div>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td name="bl" class="b l <?php echo $inImageParams['style']['position'] == 'bl' ? 'hover' : '';?>">
+                                  <div>&nbsp;</div>
+                                </td>
+                                <td name="bc" class="b <?php echo $inImageParams['style']['position'] == 'bc' ? 'hover' : '';?>">
+                                  <div>&nbsp;</div>
+                                </td>
+                                <td name="br" class="b r <?php echo $inImageParams['style']['position'] == 'br' ? 'hover' : '';?>">
+                                  <div>&nbsp;</div>
+                                </td>
+                              </tr>
+                            </table>
+                          </td>
+                        </tr>
+                        <!--inimage ad position end-->
+                      </table>
+                      <table cellspacing="0" style="margin-top: 10px;">
+                        <tr>
+                          <td width="128">Color scheme:&nbsp;&nbsp;</td>
+                          <td>
+                            <?php
+                            $inImageParams['style']['tcol'] = isset($inImageParams['style']['tcol'])?str_replace('#', '', $inImageParams['style']['tcol']):"";
+                            $inImageParams['style']['dcol'] = isset($inImageParams['style']['dcol'])?str_replace('#', '', $inImageParams['style']['dcol']):"";
+                            $inImageParams['style']['ucol'] = isset($inImageParams['style']['ucol'])?str_replace('#', '', $inImageParams['style']['ucol']):"";
+                            $inImageParams['style']['pcol'] = isset($inImageParams['style']['pcol'])?str_replace('#', '', $inImageParams['style']['pcol']):"";
+                            $inImageParams['style']['bgcol'] = isset($inImageParams['style']['bgcol'])?str_replace('#', '', $inImageParams['style']['bgcol']):"";
+                            $inImageParams['style']['bcol'] = isset($inImageParams['style']['bcol'])?str_replace('#', '', $inImageParams['style']['bcol']):"";
+                            ?>
+                            <div style="background: #<?php echo $inImageParams['style']['bgcol']; ?>; border: 1px solid #<?php echo $inImageParams['style']['bcol']; ?>" class="color_scheme" id="inimage_color_scheme">
+                              <table width="100" cellspacing="0"><tbody><tr><td><img src="<?php echo $imgPath; ?>icon.gif" width="30px;"></td><td> <div style="background: #<?php echo $inImageParams['style']['tcol']; ?>" class="title"></div>
+                                <div style="margin-top: 4px;background: #<?php echo $inImageParams['style']['dcol']; ?>" class="desc"></div>
+                                <div style="width: 50px; margin-bottom: 4px;background: #<?php echo $inImageParams['style']['dcol']; ?>" class="desc"></div>
+                                <div style="width: 20px;background: #<?php echo $inImageParams['style']['pcol']; ?>" class="price"></div></td></tr></tbody></table>
+
+                            </div>
+                            <div style="display: none;" id="inimage_color_scheme_popup" class="color_scheme_popup">
+                              <div style="padding: 5px;">
+                                <table cellspacing="3">
+                                  <tbody><tr>
+                                    <td>Title color:</td>
+                                    <td><input type="text" value="#<?php echo $inImageParams['style']['tcol']; ?>" style="background: #<?php echo $inImageParams['style']['tcol']; ?>; color: #<?php echo $inImageParams['style']['tcol']; ?>" readonly="true" class="input_color" name="inImage_tcol" id="inimage_tcol"></td>
+                                  </tr>
+                                  <tr>
+                                    <td>Description color:</td>
+                                    <td><input type="text" value="#<?php echo $inImageParams['style']['dcol']; ?>" style="background: #<?php echo $inImageParams['style']['dcol']; ?>; color: #<?php echo $inImageParams['style']['dcol']; ?>" readonly="true" class="input_color" name="inImage_dcol" id="inimage_dcol"></td>
+                                  </tr>
+                                  <tr>
+                                    <td>Url color:</td>
+                                    <td><input type="text" value="#<?php echo $inImageParams['style']['ucol']; ?>" style="background: #<?php echo $inImageParams['style']['ucol']; ?>; color: #<?php echo $inImageParams['style']['ucol']; ?>" readonly="true" class="input_color" name="inImage_ucol" id="inimage_ucol"></td>
+                                  </tr>
+
+                                  <tr>
+                                    <td>Price color:</td>
+                                    <td><input type="text" value="#<?php echo $inImageParams['style']['pcol']; ?>" style="background: #<?php echo $inImageParams['style']['pcol']; ?>; color: #<?php echo $inImageParams['style']['pcol']; ?>" readonly="true" class="input_color" name="inImage_pcol" id="inimage_pcol"></td>
+                                  </tr>                  <tr>
+                                    <td valign="top" style="padding-top: 7px;">Background color:
+
+                                    </td>
+                                    <td valign="top"><input type="text" value="#<?php echo $inImageParams['style']['bgcol']; ?>" style="background: #<?php echo $inImageParams['style']['bgcol']; ?>; color: #<?php echo $inImageParams['style']['bgcol']; ?>" readonly="true" class="input_color" name="inImage_bgcol" id="inimage_bgcol"></td>
+                                  </tr>
+                                  <tr>
+                                    <td>Frame color:</td>
+                                    <td><input type="text" value="#<?php echo $inImageParams['style']['bcol']; ?>" style="background: #<?php echo $inImageParams['style']['bcol']; ?>; color: #<?php echo $inImageParams['style']['bcol']; ?>" readonly="true" class="input_color" name="inImage_bcol" id="inimage_bcol"></td>
+                                  </tr>
+
+                                  </tbody></table>
+                              </div>
+                            </div>
+                          </td>
+                        </tr>  </table>
+
+                      <input class="format_input" type="hidden" name="inImage_position" id="inimage_position"
+                             value="<?php echo $inImageParams['style']['position'];?>"
+                      >
+                      <input type="hidden" id="inimage_range_input" name="inImage_range"
+                             value="<?php echo $inImageParams['style']['range'];?>"
+                      >
+                    </div>
+                    <p class="placem">Placement settings:</p>
+                    <table cellspacing="0" class="placements">
+                      <tr>
+                        <td>
+                          <span class="niceCheck">
+                            <input type="checkbox" name="inImage_main_placements" id="inImage_main_placements" value="main"
+                              <?php echo $inImageParams['placement']['main'] ? 'checked=true value="1"' : 'value="0"';?>
+                            >
+                          </span>
+                          <label for="inImage_main_placements">Display ads at the main page</label>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <span class="niceCheck">
+                            <input type="checkbox" name="inImage_other_placements" id="inImage_other_placements" value="other"
+                              <?php echo $inImageParams['placement']['other'] ? 'checked=true value="1"' : 'value="0"';?>
+                            >
+                          </span>
+                          <label for="inImage_other_placements">Display ads at the other pages</label>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <span class="niceCheck">
+                            <input type="checkbox" name="inImage_post_placements" id="inImage_post_placements" value="post"
+                              <?php echo $inImageParams['placement']['post'] ? 'checked=true value="1"' : 'value="0"';?>
+                            >
+                          </span>
+                          <label for="inImage_post_placements">Display ads at the posts</label>
+                        </td>
+                      </tr>
+                    </table>
+                  </div>
+                </div>
+              </td>
+              <td width="33.3%">
+                <!-- slider -->
+                <div class="ad_format" id="slider_format" style="margin-right: 0px;">
+                  <div class="cont">
+                    <div style="height: 305px">
+                      <div id="slider">
+                        <div class="top">
+                          <div class="cactive">
+                            <label class="check" for="slider_display" id="label_slider_display">
+                              <?php echo $sliderParams['style']['display'] ? 'Active!' : 'Activate!';?>
+                            </label>
+                            <span class="niceCheck format_activate">
+                              <input type="checkbox" id="slider_display" name="slider_display"
+                                <?php echo $sliderParams['style']['display'] ? 'checked="true" value="1"' : 'value="0"';?>
+                              >
+                            </span>
+                          </div>
+                          <img src="<?php echo  $imgPath . "slider_format.gif"; ?>" align="top" style="margin-top: 18px;">
+                          <h5 class="yepty_h5" style="width: 115px;">Slider</h5>
+                        </div>
+                        <table style="margin-top: 15px;">
+                          <tr>
+                            <td style="padding: 5px 0 25px;">
+                              <a class="tips" original-title="Determines what percentage of the height of the page must be viewed by the visitor before slider will shown.">
+                                Scrolling settings:
+                              </a>
+                            </td>
+                            <td style="padding: 10px 0 25px;">
+                              <div class="range_slider_vertical" id="slider_range"></div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td width="120">Slider position:</td>
+                            <td>
+                              <table class="slider_position" cellspacing="0">
+                                <tr>
+                                  <td name="tl" class="t l <?php echo $sliderParams['style']['position'] == 'tl' ? 'hover' : '';?>
+                                    <?php echo $adLineParams['style']['position'] == 'top' ? 'no_hov' : '';?>"
+                                  >
+                                    <div>&nbsp;</div>
+                                  </td>
+                                  <td name="tr" class="t r <?php echo $sliderParams['style']['position'] == 'tr' ? 'hover' : '';?>
+                                    <?php echo $adLineParams['style']['position'] == 'top' ? 'no_hov' : '';?>"
+                                  >
+                                    <div>&nbsp;</div>
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td name="cl" class="l <?php echo $sliderParams['style']['position'] == 'cl' ? 'hover' : '';?>">
+                                    <div>&nbsp;</div>
+                                  </td>
+                                  <td name="cr" class="r <?php echo $sliderParams['style']['position'] == 'cr' ? 'hover' : '';?>">
+                                    <div>&nbsp;</div>
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td name="bl" class="b l <?php echo $sliderParams['style']['position'] == 'bl' ? 'hover' : '';?>
+                                    <?php echo $adLineParams['style']['position'] != 'top' ? 'no_hov' : '';?>"
+                                  >
+                                    <div>&nbsp;</div>
+                                  </td>
+                                  <td name="br" class="b r <?php echo $sliderParams['style']['position'] == 'br' ? 'hover' : '';?>
+                                    <?php echo $adLineParams['style']['position'] != 'top' ? 'no_hov' : '';?>"
+                                  >
+                                    <div>&nbsp;</div>
+                                  </td>
+                                </tr>
+                              </table>
+
+                            </td>
+                          </tr>
+
+                        </table>
+                        <table cellspacing="2" style="margin-top: 16px;">
+                          <tr>
+                            <td width="120">Color scheme:&nbsp;&nbsp;</td>
+                            <td>
+                              <?php
+                              $sliderParams['style']['tcol'] = isset($sliderParams['style']['tcol'])?str_replace('#', '', $sliderParams['style']['tcol']):"";
+                              $sliderParams['style']['dcol'] = isset($sliderParams['style']['dcol'])?str_replace('#', '', $sliderParams['style']['dcol']):"";
+                              $sliderParams['style']['ucol'] = isset($sliderParams['style']['ucol'])?str_replace('#', '', $sliderParams['style']['ucol']):"";
+                              $sliderParams['style']['pcol'] = isset($sliderParams['style']['pcol'])?str_replace('#', '', $sliderParams['style']['pcol']):"";
+                              $sliderParams['style']['bgcol'] = isset($sliderParams['style']['bgcol'])?str_replace('#', '', $sliderParams['style']['bgcol']):"";
+                              $sliderParams['style']['bcol'] = isset($sliderParams['style']['bcol'])?str_replace('#', '', $sliderParams['style']['bcol']):"";
+                              ?>
+                              <div style="background: #<?php echo $sliderParams['style']['bgcol']; ?>; border: 1px solid #<?php echo $sliderParams['style']['bcol']; ?>" class="color_scheme" id="slider_color_scheme">
+                                <table width="100" cellspacing="0"><tbody><tr>
+
+                                  <td> <div style="background: #<?php echo $sliderParams['style']['tcol']; ?>" class="title"></div>
+                                    <div style="margin-top: 4px;background: #<?php echo $sliderParams['style']['dcol']; ?>" class="desc"></div>
+                                    <div style="width: 50px; margin-bottom: 4px;background: #<?php echo $sliderParams['style']['dcol']; ?>" class="desc"></div>
+                                    <div style="width: 20px;background: #<?php echo $sliderParams['style']['ucol']; ?>" class="url"></div></td></tr></tbody></table>
+
+                              </div>
+                              <div style="display: none;" id="slider_color_scheme_popup" class="color_scheme_popup">
+                                <div style="padding: 5px;">
+                                  <table cellspacing="3">
+                                    <tbody><tr>
+                                      <td>Title color:</td>
+                                      <td><input type="text" value="#<?php echo $sliderParams['style']['tcol']; ?>" style="background: #<?php echo $sliderParams['style']['tcol']; ?>; color: #<?php echo $sliderParams['style']['tcol']; ?>" readonly="true" class="input_color" name="slider_tcol" id="slider_tcol"></td>
+                                    </tr>
+                                    <tr>
+                                      <td>Description color:</td>
+                                      <td><input type="text" value="#<?php echo $sliderParams['style']['dcol']; ?>" style="background: #<?php echo $sliderParams['style']['dcol']; ?>; color: #<?php echo $sliderParams['style']['dcol']; ?>" readonly="true" class="input_color" name="slider_dcol" id="slider_dcol"></td>
+                                    </tr>
+                                    <tr>
+                                      <td>Url color:</td>
+                                      <td><input type="text" value="#<?php echo $sliderParams['style']['ucol']; ?>" style="background: #<?php echo $sliderParams['style']['ucol']; ?>; color: #<?php echo $sliderParams['style']['ucol']; ?>" readonly="true" class="input_color" name="slider_ucol" id="slider_ucol"></td>
+                                    </tr>
+
+                                    <tr>
+                                      <td>Price color:</td>
+                                      <td><input type="text" value="#<?php echo $sliderParams['style']['pcol']; ?>" style="background: #<?php echo $sliderParams['style']['pcol']; ?>; color: #<?php echo $sliderParams['style']['pcol']; ?>" readonly="true" class="input_color" name="slider_pcol" id="slider_pcol"></td>
+                                    </tr>                  <tr>
+                                      <td valign="top" style="padding-top: 7px;">Background color:
+
+                                      </td>
+                                      <td valign="top"><input type="text" value="#<?php echo $sliderParams['style']['bgcol']; ?>" style="background: #<?php echo $sliderParams['style']['bgcol']; ?>; color: #<?php echo $sliderParams['style']['bgcol']; ?>" readonly="true" class="input_color" name="slider_bgcol" id="slider_bgcol"></td>
+                                    </tr>
+                                    <tr>
+                                      <td>Frame color:</td>
+                                      <td><input type="text" value="#<?php echo $sliderParams['style']['bcol']; ?>" style="background: #<?php echo $sliderParams['style']['bcol']; ?>; color: #<?php echo $sliderParams['style']['bcol']; ?>" readonly="true" class="input_color" name="slider_bcol" id="slider_bcol"></td>
+                                    </tr>
+
+                                    </tbody></table>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>  </table>
+                        <input type="hidden" name="slider_position" id="slider_position"
+                               value="<?php echo $sliderParams['style']['position'];?>">
+                        <input type="hidden" name="slider_range" id="slider_range_input"
+                               value="<?php echo $sliderParams['style']['range'];?>">
+                      </div>
+                    </div>
+                    <p class="placem">Placement settings:</p>
+
+                    <table cellspacing="0" width="100%" class="placements">
+                      <tr>
+                        <td>
+                          <span class="niceCheck">
+                            <input type="checkbox" name="slider_main_placements" id="slider_main_placements" value="main"
+                              <?php echo $sliderParams['placement']['main'] ? 'checked=true value="1"' : 'value="0"';?>
+                            >
+                          </span>
+                          <label for="slider_main_placements">Display ads at the main page</label>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <span class="niceCheck">
+                            <input type="checkbox" name="slider_other_placements" id="slider_other_placements" value="other"
+                              <?php echo $sliderParams['placement']['other'] ? 'checked=true value="1"' : 'value="0"';?>
+                            >
+                          </span>
+                          <label for="slider_other_placements">Display ads at the other pages</label>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <div style="float: right">
+                            <a class="dashed_a" id="slider_demo">demo</a>
+                          </div>
+                          <span class="niceCheck">
+                            <input type="checkbox" name="slider_post_placements" id="slider_post_placements" value="post"
+                              <?php echo $sliderParams['placement']['post'] ? 'checked=true value="1"' : 'value="0"';?>
+                            >
+                          </span>
+                          <label for="slider_post_placements">Display ads at the posts</label>
+                        </td>
+                      </tr>
+                    </table>
+                  </div>
+                </div>
+              </td>
+              </tr>
+              </table>
+              <div style="height: 15px;">
+                <img src="<?php echo  $imgPath . "preview_ar.png"; ?>" class="choose_ad_formats_ar">
+              </div>
+              <div class="choose_ad_formats" align="center">
+                <!--intext_preview-->
+                <div id="intext_preview" class="intext_preview preview" align="left">
+                  <div style="padding: 25px;">
+
+                    <div class="tips" style="width: 350px; margin-left: 43px;">
+                      <div align="right" style="height: 5px;">
+                        <span class="cl"></span>
+                      </div>
+                      <a href="http://facebook.com" target="_blank" class="clickurl">
+                        <span class="title">Facebook Advertising</span>
+                                        <span class="desc">Reach The Exact Audience You Want<br>
+                                        With Relevant Targeted Ads.</span>
+                        <span class="url">www.facebook.com</span>
+                      </a>
+
+                      <div align="right" class="ads_by_yepty"><a href="http://yepty.com" target="_blank"
+                        ><span>Yepty.com</span></a>Ads by&nbsp;</div>
+
+                    </div>
+                    <div class="intext_tips_ar"></div><div class="intext_tips_after"></div>
+                    <div class="text">
+                      Pellentesque habitant morbi <span
+                      class="keyword">tristique senectus</span> et
+                      netus et malesuada fames ac turpis egestas. In posuere felis nec tortor.
+                      Pellentesque faucibus. Ut accumsan ultricies elit. Maecenas at justo id
+                      velit
+                      placerat molestie. Donec dictum lectus non odio.
+                    </div>
+                  </div>
+                </div>
+                <!--intext_preview end-->
+                <!--inimage_preview-->
+                <div class="inimage_preview preview" id="inimage_preview">
+                  <div class="tips"
+                       style="position: absolute; box-shadow: none;top: 0px; left: 10px; width: 350px; padding-bottom: 0; background: #fff;"
+                       align="left">
+                    <div align="right" style="height: 5px;">
+                      <span class="cl"></span>
+                    </div>
+                    <a style="height: auto; outline: medium none;" class="clickurl" target="_blank" href="http://store.sony.com"
+                       hidefocus="true">
+                      <img alt="image" class="img" src="<?php echo  $imgPath; ?>notebook.gif" style="float: left">
+              <span style="display: block; min-height: 75px; margin-left: 80px;">
+              <span class="title">Sony VAIO Series Notebook</span>
+                                        <span class="desc">Supreme <b>3D notebook</b> with Quad Core processor.</span>
+                <span class="price small_price">$1449.99</span>
+                </span>
+                    </a>
+                    <div align="right" class="ads_by_yepty"><a href="http://yepty.com" target="_blank"
+                      ><span>Yepty.com</span></a>Ads by&nbsp;</div>
+                  </div>
+                  <div style=" background: #fff;">
+                  <div style="height: 25px;">
+                  <p id="inimage_footnote" class="footnote" style="font-size:14px; color: #bebebe; padding: 3px;<?php echo $inImageParams['style']['showAds'] ? 'display:none' : 'display:block';?>">
+                    Hover a cursor over the image to see ad example
+                  </p>
+                  </div>
+                  <img id="exampleImg" src="<?php echo  $imgPath . "example.gif"; ?>" align="top"
+                       style="position: relative; top: 10px; left: 10px;">  </div>
+                </div>
+                <!--inimage_preview end-->
+              </div>
+              <input type="submit" class="yepty_plugin_constructor_form_submit_button" value="Save settings">
+              <div style="padding: 15px 5px 6px ">
+                <a href="http://yepty.userecho.com/topic/120670-ads-broadcasting-control-and-ability-to-restrict-indexation-of-the-website-content/" target="_blank" style="font-size: 19px; float: right; color: #D32424;">Important information! Please read</a>
+                <a href="http://community.yepty.com" target="_blank" style="font-size: 19px;">Need Help?</a>
+              </div>
+            </form>
+          </div>
